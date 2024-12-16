@@ -20,3 +20,25 @@
 ## テーブル設計
 ・usersテーブル（.images/usersテーブル.png）
 ・attendancesテーブル（.images/attendancesテーブル.png）
+
+## 環境構築
+必要な環境
+・PHP
+・Docker Desktop
+・Git
+
+Atte/
+├── docker/
+│   ├── mysql/
+│   │   ├── data/
+│   │   └── my.cnf
+│   ├── nginx/
+│   │   └── default.conf
+│   └── php/
+│       ├── Dockerfile
+│       └── php.ini
+├── src/
+│   └── [Laravelプロジェクトファイル]
+├── .env（.env/.env.development/.env.productionの3ファイル）
+└── docker-compose.yml
+
