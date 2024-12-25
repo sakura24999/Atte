@@ -1,0 +1,77 @@
+{
+    "name": "laravel/laravel",
+    "type": "project",
+    "description": "The Laravel Framework.",
+    "keywords": ["framework", "laravel"],
+    "license": "MIT",
+    "require": {
+        "php": "^7.3|^8.0",
+        "fruitcake/laravel-cors": "^2.0",
+        "guzzlehttp/guzzle": "^7.0.1",
+        "laravel/fortify": "^1.19",
+        "laravel/framework": "^8.75",
+        "laravel/sanctum": "^2.11",
+        "laravel/tinker": "^2.5"
+    },
+    "require-dev": {
+        "facade/ignition": "^2.5",
+        "fakerphp/faker": "^1.9.1",
+        "laravel/sail": "^1.0.1",
+        "mockery/mockery": "^1.4.4",
+        "nunomaduro/collision": "^5.10",
+        "phpunit/phpunit": "^9.5.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/app/",
+            "Database\\Factories\\": "src/database/factories/",
+            "Database\\Seeders\\": "src/database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php src/artisan package:discover --ansi"
+        ],
+        "post-update-cmd": [
+            "@php src/artisan vendor:publish --tag=laravel-assets --ansi --force"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('src/.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php src/artisan key:generate --ansi"
+        ],
+        "post-install-cmd": [
+            "@php src/artisan cache:clear",
+            "@php src/artisan config:clear",
+            "@php src/artisan view:clear",
+            "chmod -R 755 src/public/",
+            "chmod -R 775 src/bootstrap/cache"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        },
+         "heroku": {
+             "document-root": "src/public",
+             "index-document": "index.php"
+    }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "vendor-dir": "src/vendor"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
