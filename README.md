@@ -23,6 +23,7 @@
 
 ## 環境構築
 必要な環境
+・Docker Compose
 ・PHP
 ・Docker Desktop
 ・Git
@@ -41,4 +42,24 @@ Atte/
 │   └── [Laravelプロジェクトファイル]
 ├── .env（.env/.env.development/.env.productionの3ファイル）
 └── docker-compose.yml
+
+インストール手順
+
+1.リポジトリをクローン
+git clone <リポジトリURL>
+cd <プロジェクトディレクトリ>
+
+2.環境変数ファイルの設定
+cp .env.example .env
+
+3.Dockerコンテナのビルドと起動
+docker-compose build
+docker-compose up -d
+
+4.データベースのマイグレーション
+php artisan migrate
+
+5.アプリケーションの初期設定
+php artisan key:generate
+
 
