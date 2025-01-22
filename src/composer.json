@@ -23,9 +23,9 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/app/",
-            "Database\\Factories\\": "src/database/factories/",
-            "Database\\Seeders\\": "src/database/seeders/"
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
         }
     },
     "autoload-dev": {
@@ -38,23 +38,23 @@
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php src/artisan package:discover --ansi"
+            "@php artisan package:discover --ansi"
         ],
         "post-update-cmd": [
-            "@php src/artisan vendor:publish --tag=laravel-assets --ansi --force"
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
         ],
         "post-root-package-install": [
-            "@php -r \"file_exists('.env') || copy('src/.env.example', '.env');\""
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
         "post-create-project-cmd": [
-            "@php src/artisan key:generate --ansi"
+            "@php artisan key:generate --ansi"
         ],
         "post-install-cmd": [
-            "@php src/artisan cache:clear",
-            "@php src/artisan config:clear",
-            "@php src/artisan view:clear",
-            "chmod -R 755 src/public/",
-            "chmod -R 775 src/bootstrap/cache"
+            "@php artisan cache:clear",
+            "@php artisan config:clear",
+            "@php artisan view:clear",
+            "chmod -R 755 public/",
+            "chmod -R 775 bootstrap/cache"
         ]
     },
     "extra": {
